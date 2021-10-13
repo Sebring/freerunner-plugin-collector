@@ -1,20 +1,21 @@
 {
-  "name": "freerunner-plugin-collector",
-  "version": "0.0.1",
-  "description": "A Freerunner plugin that adds components for collecting entities (power-ups, stars, loot, chests).",
-  "main": "index.js",
-  "scripts": {
-    "build": "yarn compile && yarn minify",
-    "compile": "tsc",
-    "minify": "esbuild ./src/CollectorPlugin.ts --bundle --minify --keep-names --format=esm --outfile=build/freerunner-plugin-collector.min.js",
-    "demo": "esbuild ./demo/demo.ts --outfile=demo/demo.js --bundle --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "esbuild": "^0.13.4",
-    "freerunner": "^0.0.7",
-    "typescript": "^4.4.3"
-  }
+	"name": "freerunner-plugin-collector",
+	"version": "0.0.1",
+	"description": "A Freerunner plugin that adds components for collecting entities (power-ups, stars, loot, chests).",
+	"main": "index.js",
+	"scripts": {
+		"build": "yarn compile && yarn minify",
+		"compile": "tsc",
+		"minify": "esbuild ./src/CollectorPlugin.ts --bundle --minify --keep-names --format=esm --outfile=build/freerunner-plugin-collector.min.js",
+		"demo": "esbuild ./demo/demo.ts --outfile=demo/demo.js --bundle --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+	"esbuild": "^0.13.4",
+	"freerunner": "^0.0.7",
+	"prettier": "^2.4.1",
+	"typescript": "^4.4.4"
+	}
 }

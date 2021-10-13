@@ -1,0 +1,12 @@
+{	
+	"editor.tabSize": 3,
+	"editor.insertSpaces": false,
+	"editor.formatOnType": true,
+	"editor.formatOnPaste": true,
+	"editor.cursorBlinking": "phase",
+	"editor.formatOnSave": true,
+	// liveserver extension
+	"liveServer.settings.port": 5555,
+	// prettier extension
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+}
