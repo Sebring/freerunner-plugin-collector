@@ -1,6 +1,6 @@
 {
 	"name": "freerunner-plugin-collector",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A Freerunner plugin that adds components for collecting entities (power-ups, stars, loot, chests).",
 	"main": "index.js",
 	"scripts": {
@@ -17,5 +17,8 @@
 		"freerunner": "^0.0.7",
 		"prettier": "^2.4.1",
 		"typescript": "^4.4.4"
+	},
+	"dependencies": {
+		"standard-version": "^9.3.1"
 	}
 }
