@@ -25,7 +25,7 @@ const CollectorPluginDemo: FPlugin = {
             Collectable component directly, see how we must copy code to create more apples.
         */
         // add Apple - collectable: Apple
-        let a = F.createEntity<E_Collectable>('Apple, Collectable, , Gravity, DOM , Color')
+        F.createEntity<E_Collectable>('Apple, Collectable, , Gravity, DOM , Color')
             .attr({x:100, y:80, h:20, w:20})
             .collectable('Apple')
             .color('red')
@@ -37,7 +37,7 @@ const CollectorPluginDemo: FPlugin = {
             })
 
         // add Player - collector: Apple
-        let player = F.createEntity<E_Collector>('Player, Gravity, Color, Twoway, DOM, Collector')
+        const player = F.createEntity<E_Collector>('Player, Gravity, Color, Twoway, DOM, Collector')
             .attr({x: 200, y: 100, h:60, w:20 })
             .twoway(200, 200).color('black')
             .gravity('Floor')

@@ -1,14 +1,22 @@
 import { NamedComponent, Component, E_2D, FGame, FPlugin } from 'freerunner'
 
 export interface C_Collector extends NamedComponent {
-	collector(name: string, callback?: Function): this
+	collector(name: string, callback?: CollectorCallback): this
 }
 export interface E_Collector extends E_2D {
-    collector(name: string, callback: Function): this
+    collector(name: string, callback: CollectorCallback): this
 }
 
 export interface E_Collectable extends E_2D {
     collectable(name: string): this
+}
+
+export interface CollectableCallback {
+	(collectable: E_Collector): void
+}
+
+export interface CollectorCallback {
+	(collector: E_Collectable): void
 }
 
 const CollectorPlugin = (function() {
@@ -17,7 +25,7 @@ const CollectorPlugin = (function() {
 		F.createComponent(Collector)
 	}
 	return { load, name: 'CollectorPlugin' }
-}())
+}());
 
 
 
@@ -29,7 +37,7 @@ export const Collectable: NamedComponent = {
 		this._collectableName = ``
 		return this
 	},
-	collectable(name: string, callback: Function) {
+	collectable(name: string, callback: CollectableCallback) {
 		this._collectableName = `Collectable${name}`
 		callback && this.bind('$Collect', callback)
 		return this
@@ -53,7 +61,7 @@ export const Collector: NamedComponent = {
 	events: {
 		'Move': function(this: Component) {
 			for (const c of this._collectorComp) {
-				let hits = this.hit(c)
+				const hits = this.hit(c)
 				if (hits) {
 					if (!hits[0].obj._isCollected) {
 						!hits[0].obj.trigger('$Collect', this)
@@ -64,7 +72,7 @@ export const Collector: NamedComponent = {
 			
 		}
 	},
-	collector(this: Component, name: string, callback: any) {
+	collector(this: Component, name: string, callback: CollectorCallback) {
 		this._collectorComp = this._collectorComp? [name, ...this._collectorComp] : [name]
 		callback && this.bind(`$Collected${name}`, callback)
 		return this
