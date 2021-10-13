@@ -17,9 +17,10 @@ const CollectorPluginDemo: FPlugin = {
 		F.createEntity('Floor, Color, DOM, 2D').attr({ x: 0, y: 425, h: 85, w: 500 }).color('burlywood')
 
 		/*
-				Most basic example by creating an entity and using the 
-				Collectable component directly, see how we must copy code to create more apples.
-		  */
+		Most basic example by creating an entity and using the Collectable component 
+		directly, see how we must copy code to create more apples.
+		*/
+
 		// add Apple - collectable: Apple
 		F.createEntity<E_Collectable>('Apple, Collectable, , Gravity, DOM , Color')
 			.attr({ x: 100, y: 80, h: 20, w: 20 })
@@ -41,20 +42,20 @@ const CollectorPluginDemo: FPlugin = {
 			.collector('Apple', function (collectable: E_Collectable) {
 				console.log('Player: Mmmm apple..', collectable)
 				/*
-					  Here is a good place to trigger cascading events related to player
-					  ex for inventory keeping, scores, stats
-					 */
+				Here is a good place to trigger cascading events related to player
+				attribute effects, inventory keeping, scores, stats etc..
+				*/
 			})
 
 		/*
-		  Another collectable example, a Hat
-		  Instead of creating an entity directly we create a hat component, 
-		  the result is the same, but this one is more generic, we could make 
-		  entities with the hat component but giving them diffenet sizes, sprites etc
+		Another collectable example
+		Instead of creating an entity directly we create a hat component, 
+		the result is the same, but this one is more generic, we could make 
+		entities with the hat component but giving them diffenet sizes, sprites etc
 
-		  We also create a HatCollector component - any entity with this component can 
-		  pick up hats.
-		  */
+		We also create a HatCollector component - any entity with this component can 
+		pick up hats.
+		*/
 
 		// Hat as collectable component
 		F.createComponent<NamedComponent>({
